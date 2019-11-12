@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Games</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi, initial-scale=1">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<section class="intro" id="intro">
+  <div class = 'gameOver' id="gameOver">Вы проиграли :(</div>
+  <div class = 'record' id="record">
+    <h2>Рекорды</h2>
+    <table id="records">
+      <tr>
+        <th>Имя игрока</th>
+        <th>результат</th>
+      </tr>
+    </table>
+    <button onclick="tableOff()">Назад</button>
+  </div>
+  <canvas id="games" class="games">Не поддерживается</canvas>
+
+
+  <div id="hero" class="hero" ></div>
+  <div class="sword" id="sword"></div>
+  <div class="start" id="start">
+  <h1 id="aIntro2">
+    Заброшенный бункер
+  </h1>
+  <button src="" class="aIntro" id="aIntro" onclick="buttonClick()">Старт</button>
+  <button src="" class="aTab" id="aIntro1" onclick="tableOn()">Таблица рекордов</button>
+
+  <div id='ex2' class="aAnimation" ></div>
+</div>
+
+</section>
+<audio src="1.mp3" type="audio/ogg; codecs=vorbis" preload autoplay loop/>
+
+  <script src="js/Games.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+.intro{
+  background: url("../img/iiii.png");
+  height: 500px;
+  width: 800px;
+  margin:30px auto 0;
+  position: relative;
+  border: 10px solid darkgray;
+  border-radius: 5px;
+}
+
+button{
+  position: absolute;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding: 5px;
+  border-radius: 10px;
+}
+.start{
+  z-index: 2;
+  background: url("../img/iiii.png");
+}
+
+.aIntro {
+  width: 200px;
+  text-align: center;
+  left: 42%;
+  top: 25%;
+  color: crimson;
+}
+
+.aTab {
+  text-align: center;
+  width: 200px;
+  left: 42%;
+  top: 35%;
+  color: crimson;
+}
+
+table{
+  margin: 0 auto;
+  border-collapse: collapse
+}
+table th{
+  border: solid 2px white;
+  text-align: center;
+  padding: 20px;
+}
+
+h2{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 50px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 50px;
+  position: absolute;
+  left: 30%;
+  top: 45%;
+  color: cornsilk;
+}
+
+.record{
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  background: cornflowerblue;
+  border: 5px solid black;
+  border-radius: 20px;
+  left: -5px;
+  top: -600px;
+  z-index: 3;
+}
+
+.aAnimation{
+  position: absolute;
+  left: 0;
+  top: 215px;
+  z-index: 2;
+}
+
+.games{
+  position: relative;
+}
+
+@keyframes MyAnimation2
+{
+  from { background: url('../img/css_sprites2.png') 0 0; }
+  to { background: url('../img/css_sprites2.png') -1314px 0; } /* 1460-146=1314 */
+}
+
+#ex2
+{
+  width: 146px;
+  height: 266px;
+  animation: MyAnimation2 800ms steps(9) infinite;
+  z-index: 3;
+}
+
+@keyframes heroAnimation
+{
+  from { background: url('../img/hero/stop.png') 0 0; }
+  to { background: url('../img/hero/stop.png') -540px 0; } /* 600-60=540 */
+}
+
+@keyframes heroAnimationRight
+{
+  from { background: url('../img/hero/runRight.png') 0 0; }
+  to { background: url('../img/hero/runRight.png') -792px 0; } /* 880-88=792 */
+}
+
+@keyframes heroAnimationLeft
+{
+  from { background: url('../img/hero/runLeft.png') 0 0; }
+  to { background: url('../img/hero/runLeft.png') -792px 0; } /* 880-88=792 */
+}
+
+@keyframes heroAnimationUpDown
+{
+  from { background: url('../img/hero/UpDown.png') 0 0; }
+  to { background: url('../img/hero/UpDown.png') -621px 0; } /* 690-69=621 */
+}
+
+@keyframes heroAnimationShotRight
+{
+  from { background: url('../img/hero/attackRight.png') 0 0; }
+  to { background: url('../img/hero/attackRight.png') -837px 0; } /* 930-93=837 */
+}
+
+@keyframes heroAnimationShotLeft
+{
+  from { background: url('../img/hero/attackLeft.png') 0 0; }
+  to { background: url('../img/hero/attackLeft.png') -837px 0; } /* 930-93=837 */
+}
+
+@keyframes heroAnimationDead
+{
+  from { background: url('../img/hero/heroDead.png') 0 0; }
+  to { background: url('../img/hero/heroDead.png') -954px 0; } /* 1060-106=954 */
+}
+
+#hero{
+  width: 60px;
+  height: 110px;
+  animation: heroAnimation 700ms steps(9) infinite;
+  position: absolute;
+  top: 367px;
+  left: 20px;
+}
+
+@keyframes enemyAnimationRight
+{
+  from { background: url('../img/enemy/runRight.png') 0 0; }
+  to { background: url('../img/enemy/runRight.png') -810px 0; } /* 900-90=810 */
+}
+
+@keyframes enemyAnimationLeft
+{
+  from { background: url('../img/enemy/runLeft.png') 0 0; }
+  to { background: url('../img/enemy/runLeft.png') -810px 0; } /* 900-90=810 */
+}
+
+@keyframes enemyAttackRight
+{
+  from { background: url('../img/enemy/attackRight.png') 0 0; }
+  to { background: url('../img/enemy/attackRight.png') -810px 0; } /* 900-90=810 */
+}
+@keyframes enemyAttackLeft
+{
+  from { background: url('../img/enemy/attackLeft.png') 0 0; }
+  to { background: url('../img/enemy/attackLeft.png') -810px 0; } /* 900-90=810 */
+}
+
+
+.gameOver{
+  position: absolute;
+  left: 0;
+  top: -600px;
+  width: 800px;
+  height: 500px;
+  background: crimson;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 50px;
+}
