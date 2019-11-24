@@ -43,7 +43,6 @@ var vykl2 = new Image();
 var vykl3 = new Image();
 var vkl3 = new Image();
 
-
 brick.src = 'img/block.png';
 stairsLeft.src = 'img/stairsLeft.png';
 stairsRight.src = 'img/stairsRight.png';
@@ -86,19 +85,14 @@ var map = [
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
 
-
 //-------------------------------------------------------------------------------------------------
 //Отрисовка игрового поля.
-
-
 
 var x = 50;
 var y = 25;
 
   function draw() {
-
     clear();
-
     //console.log(ex2Left);
 
     if (ex2Left >= 700 && ex2Top >= 365){
@@ -119,8 +113,6 @@ var y = 25;
       map[2][13] = 10;
       map[1][13] = 11;
     }
-
-
 
     for (var j = 0; j < height / 25; j++) {
       for (var i = 0; i < width / 50; i++) {
@@ -173,8 +165,6 @@ var y = 25;
     }
   }
 
-
-
   function clear() {
     ctx.clearRect(0, 0, width, height)
   }
@@ -187,19 +177,19 @@ var y = 25;
   // Отрисовка и управление героем
 
 function keyDownHandler(e) { // События
-  if(e.keyCode === 39 ) {
+  if(e.keyCode === 39 || e.keyCode === 68 ) {
     rightPressed = true;
 //    console.log(rightPressed)
   }
-  if(e.keyCode === 37) {
+  if(e.keyCode === 37 || e.keyCode === 65) {
     leftPressed = true;
  //   console.log(leftPressed)
   }
-  if(e.keyCode === 38) {
+  if(e.keyCode === 38 || e.keyCode === 87) {
     upPressed = true;
  //   console.log(upPressed)
   }
-  if(e.keyCode === 40) {
+  if(e.keyCode === 40 || e.keyCode === 83) {
     downPressed = true;
     // console.log(downPressed)
   }
@@ -210,19 +200,19 @@ function keyDownHandler(e) { // События
 }
 
 function keyUpHandler(e) {
-  if(e.keyCode === 39 ) {
+  if(e.keyCode === 39 || e.keyCode === 68 ) {
     rightPressed = false;
   //  console.log(rightPressed)
   }
-  if(e.keyCode === 37) {
+  if(e.keyCode === 37 || e.keyCode === 65) {
     leftPressed = false;
    // console.log(leftPressed)
   }
-  if(e.keyCode === 38) {
+  if(e.keyCode === 38 || e.keyCode === 87) {
     upPressed = false;
    // console.log(upPressed)
   }
-  if(e.keyCode === 40) {
+  if(e.keyCode === 40 || e.keyCode === 83) {
     downPressed = false;
    // console.log(downPressed)
   }
@@ -233,84 +223,81 @@ function keyUpHandler(e) {
 }
 
 function moove() {
-  if (leftPressed === false || rightPressed === false || upPressed === false || downPressed === false || shotPressed === true){
+  if (leftPressed === false || rightPressed === false
+    || upPressed === false || downPressed === false || shotPressed === true){
     hero.style.animation = "heroAnimation 800ms steps(9) infinite";
     hero.style.width = 60 + 'px';
     hero.style.height = 110 + 'px';
     if (ex2Left < 0) ex2Left += 2;
     if (ex2Left > games.width-88) ex2Left -= 2;
   }
-  if (rightPressed === true && ex2Left < games.width-88 && ex2Top === 367 || rightPressed === true && ex2Left < games.width-88 &&  ex2Top > 190 && ex2Top<192 || rightPressed === true && ex2Left < games.width-88 && ex2Top < 16 && ex2Top > 14){
+
+  if (rightPressed === true && ex2Left < games.width-88 && ex2Top === 367
+    || rightPressed === true && ex2Left < games.width-88 &&  ex2Top > 190 && ex2Top<192
+    || rightPressed === true && ex2Left < games.width-88 && ex2Top < 16 && ex2Top > 14){
     ex2Left +=2;
     hero.style.left = ex2Left +'px';
     hero.style.animation = "heroAnimationRight 800ms steps(9) infinite";
     hero.style.width = 88 + 'px';
     hero.style.height = 110 + 'px';
   }
-  if (leftPressed === true && ex2Left > -1 && ex2Top === 367 || leftPressed === true && ex2Left > -1 &&  ex2Top > 190 && ex2Top<192 || leftPressed === true && ex2Left >= -1 && ex2Top < 16 && ex2Top > 14){
+
+  if (leftPressed === true && ex2Left > -1 && ex2Top === 367
+    || leftPressed === true && ex2Left > -1 &&  ex2Top > 190 && ex2Top<192
+    || leftPressed === true && ex2Left >= -1 && ex2Top < 16 && ex2Top > 14){
     ex2Left -=2;
     hero.style.left = ex2Left +'px';
     hero.style.animation = "heroAnimationLeft 800ms steps(9) infinite";
     hero.style.width = 88 + 'px';
     hero.style.height = 110 + 'px';
   }
-  if (upPressed === true && ex2Left < 640 && ex2Left > 600 && ex2Top >= 192 || upPressed === true && ex2Left < 140 && ex2Left > 100 && ex2Top > 15 && ex2Top < 192){
+
+  if (upPressed === true && ex2Left < 640 && ex2Left > 600 && ex2Top >= 192
+    || upPressed === true && ex2Left < 140 && ex2Left > 100 && ex2Top > 15 && ex2Top < 192){
     ex2Top -= 1;
     hero.style.top = ex2Top + 'px';
     hero.style.animation = "heroAnimationUpDown 800ms steps(9) infinite";
     hero.style.width = 69 + 'px';
     hero.style.height = 110 + 'px';
   }
-  if (downPressed === true && ex2Left < 640 && ex2Left > 600 && ex2Top < 367 && ex2Top > 190 ||downPressed === true && ex2Left < 140 && ex2Left > 100 && ex2Top < 191){
+
+  if (downPressed === true && ex2Left < 640 && ex2Left > 600 && ex2Top < 367 && ex2Top > 190
+    ||downPressed === true && ex2Left < 140 && ex2Left > 100 && ex2Top < 191){
     ex2Top += 1;
     hero.style.top = ex2Top + 'px';
     hero.style.animation = "heroAnimationUpDown 800ms steps(9) infinite";
     hero.style.width = 69 + 'px';
     hero.style.height = 110 + 'px';
   }
+
   if (shotPressed === true && rightPressed === true ){
     hero.style.animation = "heroAnimationShotRight 800ms steps(9) 1";
     ex2Left -=2;
     hero.style.width = 93 + 'px';
     hero.style.height = 110 + 'px';
-
   }
+
   if (shotPressed === true && leftPressed === true ){
     hero.style.animation = "heroAnimationShotLeft 800ms steps(9) 1";
     ex2Left +=2;
     hero.style.width = 93 + 'px';
     hero.style.height = 110 + 'px';
-
   }
+
   if (collision === true){
     hero.style.animation = "heroAnimationDead 800ms steps(9) 1";
     hero.style.width = 106 + 'px';
     hero.style.height = 110 + 'px';
     clearInterval(setHero)
-
   }
 }
+
 var setHero = setInterval(moove, 1000/60);
 
-var sword = document.getElementById('sword');
-sword.style.width = 75 + 'px';
-sword.style.height = 15 + 'px';
-sword.style.position = 'absolute';
-sword.style.zIndex = '4';
-var swordX;
-var offset = 0;
 
-function monitorShot() {
-  if (shotPressed === true && leftPressed === true) {
-    shot('left');
-  }
 
-  if (shotPressed === true && rightPressed === true) {
-    shot('right')
-  }
-}
 
-function shot(direction){   //выстрел
+/*function shot(direction){   //выстрел
   swordX = ex2Left + 60;
   console.log(swordX);
   if (direction === 'right' ){
@@ -323,43 +310,93 @@ function shot(direction){   //выстрел
     flyLeft();
   }
 }
+
 function flyRight (){
-  offset += 1;
+  sword.style.top = (ex2Top + 50) + 'px';
+  offset += 3;
   swordX += offset;
   sword.style.left = swordX + 'px';
-  sword.style.top = (ex2Top + 50) + 'px';
 }
 
 function flyLeft (){
-  offset -= 6;
+  sword.style.top = (ex2Top + 50) + 'px';
+  offset -= 3;
   swordX -= offset;
   sword.style.left = swordX + 'px';
-  sword.style.top = (ex2Top + 50) + 'px';
+}
+*/
+
+class shot{
+  constructor(){    
+    
+    this.shot = function(direction){
+     var sword = document.createElement('img');
+     sword.style.width = '75px';
+     sword.style.height = '15px';
+     sword.style.position = 'absolute';
+     sword.style.zIndex = '4';
+      if (direction === 'left') {
+        sword.src = 'img/hero/swordLeft.png';
+        sword.style.left = ex2Left + 'px'
+      }
+      if (direction === 'right') {
+        sword.src = 'img/hero/swordRight.png';
+        sword.style.left = (ex2Left + 50) + 'px';
+      }
+      intro.appendChild(sword)
+      sword.style.top = (ex2Top + 50) + 'px';      
+    }
+    var speed = 3;
+    
+    this.moove = function(direction){
+      var swordLeft = ex2Left;
+      if(direction === 'left')
+      swordLeft -= speed;
+      sword.style.left = swordLeft;
+      console.log (swordLeft);
+      if(direction === 'right')
+      swordLeft += speed;
+      sword.style.left = swordLeft;
+      console.log (swordLeft);
+    }
+
+    this.remove = function(){
+      sword.remove;
+    }
+  }
+}
+var mech = new shot()
+function monitorShot() {
+  if (shotPressed === true && leftPressed === true) {
+    mech.shot('left');
+   setInterval (mech.moove('left'), 1000/60);
+  }
+
+  if (shotPressed === true && rightPressed === true) {
+    mech.shot('right')
+    setInterval (mech.moove('right'), 1000/60);
+  }
 }
 //---------------------------------------------------------------------------------------------------------------------------
 //Класс Врагов
-
-  function Enemy() {
-
+class Enemy {
+  constructor() {
     var enemyWidth = 90;
     var enemyHeight = 100;
-
-    function enemyGo( enemy , enLeft, speedy,extremeRight,extremeLeft){
-      setInterval( run ,1000/60);
+    function enemyGo(enemy, enLeft, speedy, extremeRight, extremeLeft) {
+      setInterval(run, 1000 / 60);
       function run() {
-
         enLeft += speedy;
         enemy.style.left = enLeft + 'px';
         //console.log(enLeft);
-
-        if (collision === true ){
+        if (collision === true) {
           enemy.style.width = 91 + 'px';
-          enemy.style.animation = 'enemyAttackRight 800ms steps(9) infinite'
+          enemy.style.animation = 'enemyAttackRight 800ms steps(9) infinite';
           enLeft -= speedy;
         }
-       /* if (collision === true && enemy.style.animation === 'enemyAnimationRight 800ms steps(9) infinite'){
-          enemy.style.animation = 'enemyAttackRight 800ms steps(7) infinite'
-        }*/
+        /* if (collision === true && enemy.style.animation === 'enemyAnimationRight 800ms steps(9) infinite'){
+           enemy.style.animation = 'enemyAttackRight 800ms steps(7) infinite'
+         }*/
         if (enLeft > extremeRight) {
           speedy = -speedy;
           enemy.style.animation = 'enemyAnimationLeft 800ms steps(9) infinite';
@@ -370,16 +407,15 @@ function flyLeft (){
         }
       }
     }
-
-  this.drawEnemy = function (enemy, speedy, leftEn, topEn,extremeRight,extremeLeft) {
+    this.drawEnemy = function (enemy, speedy, leftEn, topEn, extremeRight, extremeLeft) {
       enemy.style.position = 'absolute';
       enemy.style.top = topEn + 'px';
       enemy.style.width = enemyWidth + 'px';
       enemy.style.height = enemyHeight + 'px';
-    enemy.style.animation = 'enemyAnimationRight 800ms steps(9) infinite';
-    enemyGo(enemy, leftEn, speedy,extremeRight ,extremeLeft)
-  };
-
+      enemy.style.animation = 'enemyAnimationRight 800ms steps(9) infinite';
+      enemyGo(enemy, leftEn, speedy, extremeRight, extremeLeft);
+    };
+  }
 }
 var enemyGirl = new Enemy(1,2,3);
   var enemyArr = [
@@ -418,11 +454,11 @@ function mathCollision() {
 }
 
 function functionCollision(obj1, obj2) {
-
-
-  if ((parseInt(obj1.style.left) + parseInt(obj1.style.width) >= parseInt(obj2.style.left)) && (parseInt(obj1.style.left) <= parseInt(obj2.style.left) + parseInt(obj2.style.width))) {
+  if ((parseInt(obj1.style.left) + parseInt(obj1.style.width) >= parseInt(obj2.style.left)) 
+  && (parseInt(obj1.style.left) <= parseInt(obj2.style.left) + parseInt(obj2.style.width))) {
     collision = true;
     }
+
   else collision = false;
   console.log(collision);
   return collision;
